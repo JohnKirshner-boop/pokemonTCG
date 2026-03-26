@@ -7,7 +7,8 @@ export const pokemonApi = createApi({
   }),
   endpoints: (builder) => ({
     getCards: builder.query({
-      query: () => "cards",
+      query: (name = "") => 
+        name ? `cards?q=name:${name}*` : "cards",
     }),
   }),
 });
